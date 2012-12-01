@@ -1,10 +1,6 @@
 %h1 Editing list
 
-= render 'form'
-
-- @levels_by_game.each do |game|
-  - game.values.each do |level|
-    = link_to level, '#'
+= render 'form', :games => @games
 
 %br
 %br

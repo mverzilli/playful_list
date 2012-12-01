@@ -7,7 +7,25 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label :nombre, :id => :name
     = f.text_field :name
+
+  %hr
+
+  %h3
+    Juegos
+  %span
+    Agregá juegos a tu lista haciendo click en el que quieras:
+
+  %br
+  %br
+
+  - games.each do |game|
+    %h4
+      = game.name
+    %div{style: 'margin-right:800px;height:160px;width:100%;'}
+      - game.levels.each do |level|
+        = render 'level_card', :game => game, :level => level
+
   .actions
     = f.submit 'Save'

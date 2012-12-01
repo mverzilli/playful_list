@@ -9,7 +9,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 mating = Game.create name: "Parecidos"
-memo_test = Game.create name: "Memo Test"
 sequence = Game.create name: "Secuencia"
 
 #TODO: Averiguar duraciones estimadas
@@ -20,6 +19,10 @@ mating_level_3 = mating.levels.create name: "Figura y Fondo", order: 3, duration
 mating_level_4 = mating.levels.create name: "Parte y Todo", order: 4, duration: 20
 mating_level_5 = mating.levels.create name: "Asociación", order: 5, duration: 25
 
+sequence_level_1 = sequence.levels.create name: "2 elementos de distintas formas", order: 1, duration: 5
+sequence_level_2 = sequence.levels.create name: "2 elementos de distintos colores", order: 2, duration: 10
+sequence_level_3 = sequence.levels.create name: "3 elementos", order: 3, duration: 15
+sequence_level_4 = sequence.levels.create name: "3 elementos de distintos colores", order: 4, duration: 20
 
 
 
