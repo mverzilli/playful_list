@@ -35,6 +35,8 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
+    @levels_by_game = Game.all.map{ |game| {game.name => game.levels.map(&:name)}}
+    puts  @levels_by_game.inspect
   end
 
   # POST /lists

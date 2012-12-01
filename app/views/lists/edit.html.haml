@@ -2,6 +2,14 @@
 
 = render 'form'
 
-= link_to 'Show', @list
+- @levels_by_game.each do |game|
+  - game.values.each do |level|
+    = link_to level, '#'
+
+%br
+%br
+
+
+= link_to 'Play', @list
 \|
 = link_to 'Back', lists_path
