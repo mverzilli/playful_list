@@ -4,16 +4,26 @@
     position: relative; 
     .bucket { 
       float: left; 
-      margin: 6px;
-      width: 70px;
-      height: 70px;
+      margin: 4px;
+      width: 128px;
+      height: 128px;
       vertical-align: middle;
       text-align: center;
       
+      img { height: 128px; width: 128px; }
+      
       &.guess {
-        background : url('/assets/square-guess.png') no-repeat;
+        background : url('/assets/square-guess.png') no-repeat 50% 50%;
         img { display: none; }
       }
+    }
+    
+    .btn {
+      height: 96px; width: 96px;
+      vertical-align: middle;
+      text-align: center;
+      margin-left: 4px;
+      margin-right: 20px;
     }
   }
 }

@@ -26,6 +26,8 @@ $(function() {
     var self = this;
     ko.mapping.fromJS(element, {}, self);
     
+    self.hightlight = ko.observable(false);
+    
     self.choosed = function() {
       game.process_user_response(self.key());
     };
@@ -54,6 +56,9 @@ $(function() {
       
       if (guess.key() == key) {
         guess.visible(true);
+        self.get_option_for_key(guess.key()).hightlight(false);
+      } else {
+        self.get_option_for_key(guess.key()).hightlight(true);
       }
       
     };
@@ -66,9 +71,19 @@ $(function() {
           return false;
         }
       });
-      
       return res;
-    }
+    };
+    
+    self.get_option_for_key = function(key) {
+      var res = null;
+      $.each(self.elements(), function(i,e) {
+        if (e.key() == key) {
+          res = e;
+          return false;
+        }
+      });
+      return res;
+    };
   }
   
   var view_model = new GameViewModel();

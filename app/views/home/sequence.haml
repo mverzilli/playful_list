@@ -10,5 +10,5 @@
   %h2 Opciones
   
   .row(data-bind="foreach: elements")
-    %button(data-bind="click: choosed")
+    %button.btn(data-bind="click: choosed, css: { glow_effect : hightlight }")
       %img(data-bind="attr : { src: image }")
