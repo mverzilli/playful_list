@@ -1,6 +1,6 @@
 window.on_load = (question) ->
   $('.wrong').click ->
-    alert 'Mal!'
+    $('.right').addClass 'glow_effect'
 
   $('.right').click ->
     alert 'Bien!'
