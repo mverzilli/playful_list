@@ -1,0 +1,22 @@
+- content_for :head do
+  :javascript
+    $(document).ready(function() { on_load('#{@question}') })
+
+%div
+  %h1
+    Apareos
+
+  %div#container{style: "margin-left:300px"}
+    %div{style: "margin-right:60px;float:left;"}
+      - @choices_left.each do |choice|
+        - if choice == @question
+          %div{style: "border: 10px solid orange; height: 200px; width: 200px; background-image: url(#{asset_path choice})"}
+        - else
+          %div{style: "border: 10px solid white; height: 200px; width: 200px; background-image: url(#{asset_path choice})"}
+    %div{style: "float:left;height:800px;width:1px;border-left:1px #000 solid;"}
+    %div{style: "margin-left:60px;float:left;"}
+      - @choices_right.each do |choice|
+        - if choice == @answer
+          .right{style: "border: 10px solid white; margin-right:60px;height: 200px; width: 200px; background-image: url(#{asset_path choice})"}
+        - else
+          .wrong{style: "border: 10px solid white; margin-right:60px;height: 200px; width: 200px; background-image: url(#{asset_path choice})"}

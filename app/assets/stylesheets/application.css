@@ -18,6 +18,34 @@
   margin: 0 40px !important;
 }
 
+.left_column {
+  margin-right:60px;
+  float:left;
+}
+
+.left_choice, .right, .wrong {
+  height: 200px;
+  width: 200px;
+  border: 10px solid white;
+}
+
+.question {
+  border: 10px solid orange;
+}
+
+.vertical-rule {
+  float:left;
+  height:800px;
+  width:1px;
+  border-left:1px #000 solid;
+}
+
+.right_column {
+  margin-left:60px;
+  float:left;
+}
+
+
 /*66, 140, 240 --> 255,187,47*/
 /*0, 140, 255 --> 239,159,47 */
 /* rgb(255,197,0) */
@@ -88,3 +116,4 @@
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+
