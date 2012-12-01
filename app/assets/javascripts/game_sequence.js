@@ -1,21 +1,5 @@
 
 $(function() {
-  var sequence_data = {
-    goal : [ 
-      { key : "a", visible : true },
-      { key : "b", visible : true },
-      { key : "a", visible : true },
-      { key : "b", visible : false },
-      { key : "a", visible : false },
-      { key : "b", visible : false },
-    ],
-    elements : {
-      "a" : "/assets/square-red.png",
-      "b" : "/assets/square-green.png"
-    },
-    timeout_sec : 10,
-  };
-
   function BucketViewModel(element, json_elements) {
     var self = this;
     ko.mapping.fromJS(element, {}, self);
@@ -125,9 +109,10 @@ $(function() {
     };
   }
   
-  var view_model = new GameViewModel();
-  view_model.load_sequence(sequence_data);
-  
-  ko.applyBindings(view_model, $("#sequence-board")[0]);
+  window.play_sequence = function(data) {
+    var view_model = new GameViewModel();
+    view_model.load_sequence(data);
+    ko.applyBindings(view_model, $("#sequence-board")[0]);
+  }
   
 });
