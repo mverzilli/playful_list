@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require knockout-2.2.0
+//= require knockout.mapping
 //= require_tree .

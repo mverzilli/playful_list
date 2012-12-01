@@ -1,0 +1,19 @@
+
+#sequence-board {
+  .row { 
+    position: relative; 
+    .bucket { 
+      float: left; 
+      margin: 6px;
+      width: 70px;
+      height: 70px;
+      vertical-align: middle;
+      text-align: center;
+      
+      &.guess {
+        background : url('/assets/square-guess.png') no-repeat;
+        img { display: none; }
+      }
+    }
+  }
+}
