@@ -1,1 +1,14 @@
 %h1 Secuencia
+
+#sequence-board
+  %h2 Complete la secuencia
+  
+  .row(data-bind="foreach: sequence")
+    .bucket.well(data-bind="css : { guess: visible() == false }")
+      %img(data-bind="attr : { src: image }")
+      
+  %h2 Opciones
+  
+  .row(data-bind="foreach: elements")
+    %button.btn(data-bind="click: choosed, css: { glow_effect : hightlight }")
+      %img(data-bind="attr : { src: image }")
