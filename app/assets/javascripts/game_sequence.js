@@ -27,7 +27,6 @@ $(function() {
     self.timeout_timer = null;
     
     self.restart = function() {
-      self.invalidate_timeout_timer();
       self.load_sequence(self.original_data);
     };
     
@@ -36,6 +35,13 @@ $(function() {
         clearTimeout(self.timeout_timer);
         self.timeout_timer = null;
       }
+    }
+    
+    self.initialize_timeout_timer = function() {
+      self.invalidate_timeout_timer();
+      self.timeout_timer = window.setTimeout(function(){
+        self.process_user_response(null);
+      }, self.original_data.timeout_sec * 1000);
     }
     
     self.load_sequence = function(data) {
@@ -52,8 +58,7 @@ $(function() {
         self.sequence.push(new BucketViewModel(e, data.elements));
       });
       
-      self.invalidate_timeout_timer();
-      self.timeout_timer = window.setTimeout(window.game_finished_timeout, data.timeout_sec * 1000);
+      self.initialize_timeout_timer();
     };
     
     self.process_user_response = function(key) {
@@ -79,6 +84,8 @@ $(function() {
         } else {
           game_finished_success();
         }
+      } else {
+        self.initialize_timeout_timer();
       }
     };
     
