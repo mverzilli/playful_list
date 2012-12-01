@@ -1,6 +1,9 @@
 PlayfulList::Application.routes.draw do
+  resources :lists
+
+
   devise_for :users
-  
+
   get '/sequence' => 'home#sequence'
 
   # The priority is based upon order of creation:
@@ -53,7 +56,7 @@ PlayfulList::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  root :to => 'home#index'
+  root :to => 'lists#index'
 
   # See how all your routes lay out with "rake routes"
 
