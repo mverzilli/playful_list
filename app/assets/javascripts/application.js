@@ -16,3 +16,10 @@
 //= require knockout.mapping
 //= require_tree .
 
+window.game_finished_success = function () {
+  alert('Hurray finished!');
+}
+
+window.game_finished_timeout = function () {
+  alert('Timeout!');
+}
