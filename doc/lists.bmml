@@ -1,0 +1,129 @@
+<mockup version="1.0" skin="sketch" measuredW="1075" measuredH="747" mockupW="753" mockupH="747">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="322" y="0" w="753" h="747" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Window%20Name</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Title" x="375" y="77" w="-1" h="-1" measuredW="396" measuredH="56" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mis%20Listas%20de%20Juegos</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::SubTitle" x="375" y="162" w="-1" h="-1" measuredW="89" measuredH="37" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nombre</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::SubTitle" x="574" y="161" w="-1" h="-1" measuredW="240" measuredH="37" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Duraci%F3n%20aproximada</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::SubTitle" x="375" y="219" w="-1" h="-1" measuredW="77" measuredH="37" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lista%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::HRule" x="376" y="197" w="671" h="-1" measuredW="100" measuredH="5" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::SubTitle" x="574" y="218" w="-1" h="-1" measuredW="128" measuredH="37" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>30%20minutos</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::SubTitle" x="375" y="300" w="-1" h="-1" measuredW="81" measuredH="37" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lista%202</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::HRule" x="375" y="274" w="671" h="-1" measuredW="100" measuredH="5" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::SubTitle" x="574" y="299" w="-1" h="-1" measuredW="126" measuredH="37" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>45%20minutos</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::HRule" x="375" y="350" w="671" h="-1" measuredW="100" measuredH="5" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::SubTitle" x="375" y="376" w="-1" h="-1" measuredW="81" measuredH="37" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lista%203</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::SubTitle" x="574" y="375" w="-1" h="-1" measuredW="123" measuredH="37" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>15%20minutos</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="__group__" x="905" y="213" w="125" h="48" measuredW="125" measuredH="48" zOrder="13" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::IconLabel" x="86" y="1" w="-1" h="-1" measuredW="39" measuredH="47" zOrder="0" locked="false" isInGroup="20">
+          <controlProperties>
+            <icon>RightTriangleIcon%7Csmall</icon>
+            <text>Jugar</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::IconLabel" x="0" y="0" w="-1" h="-1" measuredW="63" measuredH="47" zOrder="1" locked="false" isInGroup="20">
+          <controlProperties>
+            <icon>PencilIcon%7Csmall</icon>
+            <text>Modificar</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="21" controlTypeID="__group__" x="905" y="294" w="125" h="48" measuredW="125" measuredH="48" zOrder="14" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::IconLabel" x="86" y="1" w="-1" h="-1" measuredW="39" measuredH="47" zOrder="0" locked="false" isInGroup="21">
+          <controlProperties>
+            <icon>RightTriangleIcon%7Csmall</icon>
+            <text>Jugar</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::IconLabel" x="0" y="0" w="-1" h="-1" measuredW="63" measuredH="47" zOrder="1" locked="false" isInGroup="21">
+          <controlProperties>
+            <icon>PencilIcon%7Csmall</icon>
+            <text>Modificar</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="22" controlTypeID="__group__" x="905" y="370" w="125" h="48" measuredW="125" measuredH="48" zOrder="15" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::IconLabel" x="86" y="1" w="-1" h="-1" measuredW="39" measuredH="47" zOrder="0" locked="false" isInGroup="22">
+          <controlProperties>
+            <icon>RightTriangleIcon%7Csmall</icon>
+            <text>Jugar</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::IconLabel" x="0" y="0" w="-1" h="-1" measuredW="63" measuredH="47" zOrder="1" locked="false" isInGroup="22">
+          <controlProperties>
+            <icon>PencilIcon%7Csmall</icon>
+            <text>Modificar</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::HRule" x="375" y="433" w="671" h="-1" measuredW="100" measuredH="5" zOrder="16" locked="false" isInGroup="-1"/>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Button" x="375" y="462" w="-1" h="-1" measuredW="132" measuredH="28" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Crear%20Nueva%20Lista</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::IconLabel" x="829" y="213" w="-1" h="-1" measuredW="53" measuredH="47" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>XIcon%7Csmall</icon>
+        <text>Eliminar</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::IconLabel" x="829" y="294" w="-1" h="-1" measuredW="53" measuredH="47" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>XIcon%7Csmall</icon>
+        <text>Eliminar</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::IconLabel" x="829" y="370" w="-1" h="-1" measuredW="53" measuredH="47" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>XIcon%7Csmall</icon>
+        <text>Eliminar</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
