@@ -14,7 +14,7 @@
       // Chrome does not render the video unless a position property is changed or screen is resized
       window.setInterval(function() {
         $('video').css('position', 'relative');
-      }, 100);
+      }, 500);
     });
 
 %video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/#{@prize_media_name}.jpg"}
