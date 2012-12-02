@@ -57,6 +57,9 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
+    video = params[:video]
+    params[:list][:video] = video[video.rindex("/")+1..video.rindex(".")-1]
+
     @list = List.new(params[:list])
 
     respond_to do |format|
@@ -73,6 +76,9 @@ class ListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.json
   def update
+    video = params[:video]
+    params[:list][:video] = video[video.rindex("/")+1..video.rindex(".")-1]
+
     @list = List.find(params[:id])
 
     respond_to do |format|

@@ -17,11 +17,3 @@
 //= require knockout.mapping
 //= require_tree .
 
-window.game_finished_success = function () {
-  var stats = {
-    completed_at: new Date()
-  };
-
-  $('#stats').val(JSON.stringify(stats));
-  $('form#completeIteration').submit();
-}

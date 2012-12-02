@@ -50,6 +50,7 @@ class Session < ActiveRecord::Base
   private
 
   def save_iteration_statistics(step, iteration, stats)
+    puts "Stats: #{stats.inspect}"
     session_iters.create(step: step, iteration: iteration, stats: stats)
   end
 

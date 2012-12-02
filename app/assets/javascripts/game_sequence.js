@@ -73,13 +73,15 @@ $(function() {
       } else {
         self.hint_used = true;
         self.get_option_for_key(guess.key()).hightlight(true);
-        window.playSound('call-to-action');
+        window.stats['hints'] += 1;
+        if (key == null) window.playSound('call-to-action');
       }
 
       if (self.finished()) {
         self.invalidate_timeout_timer();
         window.playSound('iteration-complete', function() {
           if (self.hint_used) {
+            window.stats['attempts'] += 1;
             window.setTimeout(function(){
               self.restart();
             }, 1500);

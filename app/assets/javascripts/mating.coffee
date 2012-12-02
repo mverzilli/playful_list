@@ -16,6 +16,7 @@ class window.MatingGame
     @timeout = null
 
     @timeout = window.setTimeout(() =>
+      window.playSound 'call-to-action'
       @error()
     , 10000)
 
@@ -33,7 +34,7 @@ class window.MatingGame
 
   hint: =>
     $('.right').addClass 'glow_effect'
-    window.playSound 'call-to-action'
+    window.stats['hints'] += 1
 
   restart: =>
     $('.right').removeClass 'glow_effect'
