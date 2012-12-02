@@ -1,16 +1,16 @@
 - content_for(:head) do
   :javascript
-    // TODO: Here the prize should play and then redirect to window.nextUrl; for now, there is just a timeout
     $(function() {
       if (window.nextUrl) {
+        // This 2000 will change to {video_length} / #levelsOnList * #currentlevel
         window.setTimeout(function() {
-          //window.location = window.nextUrl;
+          window.location = window.nextUrl;
         }, 2000);
       }
     });
 
 %p= prize
 
-%video#videovideoPlayer{:autobuffer => "", :controls => "", :poster => "/assets/Backyardigans_poster.jpg"}
+%video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/Backyardigans_poster.jpg"}
   %source{:src => "/assets/Backyardigans.mp4", :type => "video/mp4"}
     %img{:alt => "Film Poster", :height => "180", :src => "/assets/Backyardigans_poster.jpg", :width => "320"}
