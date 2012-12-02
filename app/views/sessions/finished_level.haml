@@ -1,0 +1,8 @@
+- content_for(:head) do
+  :javascript
+    window.nextUrl = "#{play_session_url(@session, @step, @iteration)}";
+
+%h1 Felicitaciones, terminaste el nivel!
+%p Preparate para el próximo...
+%hr
+= render 'prize', prize: @prize

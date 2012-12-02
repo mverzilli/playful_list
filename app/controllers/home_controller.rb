@@ -1,3 +1,6 @@
+# DEPRECATED
+# This controller and its views are deprecated
+# Refer to sessions controller
 class HomeController < ApplicationController
   def mating
     choices = ['circle.jpg', 'square.jpg', 'triangle.jpg']
@@ -8,7 +11,7 @@ class HomeController < ApplicationController
     @question = choices.sample
     @answer = @question
   end
-  
+
   def sequence
   end
 end
