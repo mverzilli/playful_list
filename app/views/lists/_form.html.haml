@@ -33,6 +33,9 @@
         - game.levels.each do |level|
           = render 'level_card', :game => game, :level => level, :list => @list
 
+    .actions
+      = f.submit 'Grabar'
 
-  .actions
-    = f.submit 'Grabar'
+  -else
+    .actions
+      = f.submit 'Agregar juegos'
