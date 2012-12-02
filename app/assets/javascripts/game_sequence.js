@@ -76,14 +76,15 @@ $(function() {
 
       if (self.finished()) {
         self.invalidate_timeout_timer();
-
-        if (self.hint_used) {
-          window.setTimeout(function(){
-            self.restart();
-          }, 1500);
-        } else {
-          game_finished_success();
-        }
+        window.playSound('iteration-complete', function() {
+          if (self.hint_used) {
+            window.setTimeout(function(){
+              self.restart();
+            }, 1500);
+          } else {
+            game_finished_success();
+          }
+        })
       } else {
         self.initialize_timeout_timer();
       }
