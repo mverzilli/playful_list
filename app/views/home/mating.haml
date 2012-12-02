@@ -11,17 +11,17 @@
       - @data.left_column_choices.each do |choice|
         - if choice.image == @data.question
           .left_choice.question
-            = image_tag(asset_path choice.image)
+            = image_tag(asset_path(choice.image), style: 'height: 200px;')
         - else
           .left_choice
-            = image_tag(asset_path choice.image)
+            = image_tag(asset_path(choice.image), style: 'height: 200px;')
     .vertical-rule
     .right_column
       - @data.right_column_choices.each do |choice|
         - if choice.image == @data.answer
           .right
-            = image_tag(asset_path choice.image)
+            = image_tag(asset_path(choice.image), style: 'height: 200px;')
         - else
           .wrong
-            = image_tag(asset_path choice.image)
+            = image_tag(asset_path(choice.image), style: 'height: 200px;')
 

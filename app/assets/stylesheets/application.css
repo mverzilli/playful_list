@@ -14,7 +14,7 @@
 */
 
 html, body { background-color: #A7DBD8; }
-.container { 
+.container {
     background-color: #ebe7e0; /*E0E4CC; */
     margin-top: 40px;
     padding: 10px;
@@ -163,7 +163,8 @@ h1, h2, h3 {
 .left_choice, .right, .wrong {
   height: 200px;
   width: 200px;
-  border: 10px solid white;
+  border: 10px solid #eeeeee;
+  margin: 10px;
 }
 
 .question {
