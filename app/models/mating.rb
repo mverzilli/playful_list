@@ -48,11 +48,8 @@ class Mating
 
       @answer = question_answer.answer
 
-      p @question
-      p @answer
-
-      @left_column_choices = questions.map { |q| q.question }
-      @right_column_choices = questions.map { |q| q.answer }
+      @left_column_choices = questions.map { |q| q.question }.shuffle
+      @right_column_choices = questions.map { |q| q.answer }.shuffle
     end
   end
 end
