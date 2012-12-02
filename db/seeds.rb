@@ -15,13 +15,13 @@ sequence = Game.create! name: "Secuencia"
 
 
 mating_level_1 = mating.levels.create! name: "Objetos Idénticos", order: 1, duration: 500, repetitions: 2
-mating_level_2 = mating.levels.create! name: "Objetos No Idénticos", order: 2, duration: 1000, repetitions: 1
-mating_level_3 = mating.levels.create! name: "Figura y Fondo", order: 3, duration: 1500, repetitions: 1
-mating_level_4 = mating.levels.create! name: "Parte y Todo", order: 4, duration: 2000, repetitions: 1
-mating_level_5 = mating.levels.create! name: "Asociación", order: 5, duration: 2500, repetitions: 1
+mating_level_2 = mating.levels.create! name: "Objetos No Idénticos", order: 2, duration: 1000, repetitions: 2
+mating_level_3 = mating.levels.create! name: "Figura y Fondo", order: 3, duration: 1500, repetitions: 2
+mating_level_4 = mating.levels.create! name: "Parte y Todo", order: 4, duration: 2000, repetitions: 2
+mating_level_5 = mating.levels.create! name: "Asociación", order: 5, duration: 2500, repetitions: 2
 
-sequence_level_1 = sequence.levels.create! name: "2 elementos", order: 1, duration: 500, repetitions: 1
-sequence_level_2 = sequence.levels.create! name: "3 elementos", order: 3, duration: 1500, repetitions: 3
+sequence_level_1 = sequence.levels.create! name: "2 elementos", order: 1, duration: 500, repetitions: 2
+sequence_level_2 = sequence.levels.create! name: "3 elementos", order: 3, duration: 1500, repetitions: 2
 
 choice1 = Choice.create! image: "circle.jpg", group: "shapes"
 choice2 = Choice.create! image: "square.jpg", group: "shapes"
@@ -120,12 +120,12 @@ mar = Choice.create! image: 'mar.png'
 cielo = Choice.create! image: 'cielo.png'
 mar = Choice.create! image: 'mar.png'
 
-Question.create! question: locomotora, answer: vias, level_id: mating_level_4.id
-Question.create! question: auto2, answer: ruta, level_id: mating_level_4.id
-Question.create! question: avion3, answer: cielo, level_id: mating_level_4.id
-Question.create! question: velero, answer: mar, level_id: mating_level_4.id
-Question.create! question: helicoptero, answer: cielo, level_id: mating_level_4.id
-Question.create! question: barco2, answer: mar, level_id: mating_level_4.id
+Question.create! question: locomotora, answer: vias, level_id: mating_level_5.id
+Question.create! question: auto2, answer: ruta, level_id: mating_level_5.id
+Question.create! question: avion3, answer: cielo, level_id: mating_level_5.id
+Question.create! question: velero, answer: mar, level_id: mating_level_5.id
+Question.create! question: helicoptero, answer: cielo, level_id: mating_level_5.id
+Question.create! question: barco2, answer: mar, level_id: mating_level_5.id
 
 
 dentifrico = Choice.create! image: 'dentifrico.png'
@@ -148,3 +148,24 @@ Question.create! question: lapiz, answer: sacapuntas, level_id: mating_level_5.i
 Question.create! question: tempera, answer: pincel2, level_id: mating_level_5.id
 Question.create! question: perro2, answer: cucha, level_id: mating_level_5.id
 Question.create! question: cerradura, answer: llave, level_id: mating_level_5.id
+
+auto = Choice.create! image: 'auto.png'
+mamadera = Choice.create! image: 'mamadera.png'
+kitty = Choice.create! image: 'kitty.png'
+arbolparte = Choice.create! image: 'arbol-parte.png'
+avion = Choice.create! image: 'avion.png'
+scooby = Choice.create! image: 'scooby.png'
+
+rueda = Choice.create! image: 'rueda.png'
+tetina = Choice.create! image: 'tetina.png'
+kittyparte = Choice.create! image: 'kitty-parte.png'
+ramas = Choice.create! image: 'ramas.png'
+helice = Choice.create! image: 'helice.png'
+pata = Choice.create! image: 'pata.png'
+
+Question.create! question: auto, answer: rueda, level_id: mating_level_4.id
+Question.create! question: mamadera, answer: tetina, level_id: mating_level_4.id
+Question.create! question: kitty, answer: kittyparte, level_id: mating_level_4.id
+Question.create! question: arbolparte, answer: ramas, level_id: mating_level_4.id
+Question.create! question: avion, answer: helice, level_id: mating_level_4.id
+Question.create! question: scooby, answer: pata, level_id: mating_level_4.id
