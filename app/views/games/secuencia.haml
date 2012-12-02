@@ -2,18 +2,8 @@
   :javascript
     $(function(){
       var sequence_data = {
-        goal : [
-          { key : "a", visible : true },
-          { key : "b", visible : true },
-          { key : "a", visible : true },
-          { key : "b", visible : false },
-          { key : "a", visible : false },
-          { key : "b", visible : false },
-        ],
-        elements : {
-          "a" : "/assets/square-red.png",
-          "b" : "/assets/square-green.png"
-        },
+        goal : #{@data.goal.to_json},
+        elements : #{@data.elements.to_json},
         timeout_sec : 10,
       };
 
