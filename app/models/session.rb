@@ -44,7 +44,7 @@ class Session < ActiveRecord::Base
   end
 
   def reinforcement_for_step(step)
-    "El premio para el nivel #{step} deberia estar aqui. En cambio, mostramos este texto. Esperemos puedan apreciarlos igual."
+    list.video
   end
 
   private
