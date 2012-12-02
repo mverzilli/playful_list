@@ -1,24 +1,29 @@
 - content_for :head do
   :javascript
-    $(document).ready(function() { on_load('#{@question}') })
+    $(document).ready(function() { on_load('#{@data.question.image}') })
 
 %div
   %h1
-    Apareos
+    Parecidos
 
   %div#container
     .left_column
-      - @choices_left.each do |choice|
-        - if choice == @question
-          .left_choice.question{style: "background-image: url(#{asset_path choice});"}
+      - @data.left_column_choices.each do |choice|
+        - if choice.image == @data.question.image
+          .left_choice.question
+            = image_tag(asset_path choice.image)
         - else
-          .left_choice{style: "background-image: url(#{asset_path choice})"}
+          .left_choice
+            = image_tag(asset_path choice.image)
     .vertical-rule
     .right_column
-      - @choices_right.each do |choice|
-        - if choice == @answer
-          .right{style: "background-image: url(#{asset_path choice})"}
+      - @data.right_column_choices.each do |choice|
+        - if choice.image == @data.answer.image
+          .right
+            = image_tag(asset_path choice.image)
         - else
-          .wrong{style: "background-image: url(#{asset_path choice})"}
+          .wrong
+            = image_tag(asset_path choice.image)
+
 
 = hidden_complete_iteration_form
