@@ -4,6 +4,8 @@ class Session < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
 
+  has_many :session_iters
+
   validates_presence_of :list
 
   serialize :statistics, Hash
@@ -48,7 +50,7 @@ class Session < ActiveRecord::Base
   private
 
   def save_iteration_statistics(step, iteration, stats)
-    (statistics[step] ||= {})[iteration] = stats
+    session_iters.create(step: step, iteration: iteration, stats: stats)
   end
 
 

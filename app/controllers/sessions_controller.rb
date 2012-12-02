@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def completed
-    result = @session.completed_iteration!(step: @step, iteration: @iteration, stats: params[:stats])
+    stats = params[:stats] ? JSON.parse(params[:stats]) : {}
+    result = @session.completed_iteration!(step: @step, iteration: @iteration, stats: stats)
 
     if result[:list_completed]
       redirect_to finished_list_session_path(@session, from_step: result[:step]-1)
