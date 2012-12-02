@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  # list/id/play/step/iteration/action
-
   before_filter :load_session, :except => :start
   before_filter :load_level,   :only => [:play, :completed]
   before_filter :load_prize,   :only => [:finished_session, :finished_level]

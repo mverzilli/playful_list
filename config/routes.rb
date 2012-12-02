@@ -15,6 +15,8 @@ PlayfulList::Application.routes.draw do
       get  'hooray', :action => :finished_level,   :as => 'finished_level'
       get  'finish', :action => :finished_list,    :as => 'finished_list'
     end
+    # resources :sessions_iters, :only => [:index] do
+    # end
   end
 
   devise_for :users
