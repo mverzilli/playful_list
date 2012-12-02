@@ -16,16 +16,17 @@ class window.MatingGame
     @timeout = null
 
     @timeout = window.setTimeout(() =>
+      window.playSound 'call-to-action'
       @error()
     , 10000)
 
   success: =>
-    @greet()
-    if @attempts == 1
-      @attempts++
-      @restart()
-    else
-      game_finished_success()
+    window.playSound 'iteration-complete', () =>
+      if @attempts == 1
+        @attempts++
+        @restart()
+      else
+        game_finished_success()
 
   error: =>
     @attempts++
@@ -33,14 +34,11 @@ class window.MatingGame
 
   hint: =>
     $('.right').addClass 'glow_effect'
+    window.stats['hints'] += 1
 
   restart: =>
     $('.right').removeClass 'glow_effect'
     @start_clock()
-
-  greet: =>
-    #TBD
-    alert 'Iupi!'
 
 
 window.on_load = (question) ->

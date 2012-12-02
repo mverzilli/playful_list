@@ -5,7 +5,7 @@ PlayfulList::Application.routes.draw do
     post 'add_level/:level_id', :action => :add_level
   end
 
-  resources :sessions, :only => [] do
+  resources :sessions, :only => [:index] do
     collection do
       post 'start/:list_id', :action => :start, :as => 'start'
     end
@@ -15,6 +15,7 @@ PlayfulList::Application.routes.draw do
       get  'hooray', :action => :finished_level,   :as => 'finished_level'
       get  'finish', :action => :finished_list,    :as => 'finished_list'
     end
+    resources :sessions_iters, :as => :iters, :only => [:index]
   end
 
   devise_for :users

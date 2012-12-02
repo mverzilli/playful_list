@@ -69,22 +69,30 @@ $(function() {
 
         // ensure no option is highlighted (actual the one that has been pressed)
         self.get_option_for_key(guess.key()).hightlight(false);
+
       } else {
         self.hint_used = true;
         self.get_option_for_key(guess.key()).hightlight(true);
+        window.stats['hints'] += 1;
+        if (key == null) window.playSound('call-to-action');
       }
 
       if (self.finished()) {
         self.invalidate_timeout_timer();
-
-        if (self.hint_used) {
-          window.setTimeout(function(){
-            self.restart();
-          }, 1500);
-        } else {
-          game_finished_success();
-        }
+        window.playSound('iteration-complete', function() {
+          if (self.hint_used) {
+            window.stats['attempts'] += 1;
+            window.setTimeout(function(){
+              self.restart();
+            }, 1500);
+          } else {
+            game_finished_success();
+          }
+        })
       } else {
+        // play small reinforcement
+        if (guess.key() == key) window.playSound('correct');
+
         self.initialize_timeout_timer();
       }
     };

@@ -2,25 +2,18 @@
   :javascript
     $(function(){
       var sequence_data = {
-        goal : [
-          { key : "a", visible : true },
-          { key : "b", visible : true },
-          { key : "a", visible : true },
-          { key : "b", visible : false },
-          { key : "a", visible : false },
-          { key : "b", visible : false },
-        ],
-        elements : {
-          "a" : "/assets/square-red.png",
-          "b" : "/assets/square-green.png"
-        },
+        goal : #{@data.goal.to_json},
+        elements : #{@data.elements.to_json},
         timeout_sec : 10,
       };
 
       play_sequence(sequence_data);
     });
 
-%h1 Secuencia
+%div.clearfix
+  .pull-right
+    = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
+  %h1.pull-left Secuencia
 
 #sequence-board
   %h2 Complete la secuencia
@@ -35,4 +28,5 @@
     %button.btn(data-bind="click: choosed, css: { glow_effect : hightlight }")
       %img(data-bind="attr : { src: image }")
 
-= hidden_complete_iteration_form
+-# TODO: This should be part of a layout that affects all games
+= render 'games/hidden_controls'

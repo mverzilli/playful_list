@@ -38,7 +38,6 @@ class ListsController < ApplicationController
     list = List.find(params[:list_id])
     list.list_levels.create level_id: params[:level_id]
     render nothing: true
-
   end
 
   def sort
@@ -58,6 +57,9 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
+    video = params[:video]
+    params[:list][:video] = video[video.rindex("/")+1..video.rindex(".")-1]
+
     @list = List.new(params[:list])
 
     respond_to do |format|
@@ -74,11 +76,14 @@ class ListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.json
   def update
+    video = params[:video]
+    params[:list][:video] = video[video.rindex("/")+1..video.rindex(".")-1]
+
     @list = List.find(params[:id])
 
     respond_to do |format|
       if @list.update_attributes(params[:list])
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
+        format.html { redirect_to lists_url, notice: 'List was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
