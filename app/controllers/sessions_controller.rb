@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
 
   def play
     @body_css = 'full_width'
-    
     @data = @level.generate_iteration(@iteration)
     render "/games/#{@level.view_name}"
   end
