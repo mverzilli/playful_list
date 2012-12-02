@@ -1,5 +1,5 @@
 %h1 Creá una lista
 
-= render 'form', :games => Game.all
+= render 'form', :games => Game.all, :list => @list
 
 = link_to 'Back', lists_path

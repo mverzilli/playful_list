@@ -25,6 +25,8 @@ class ListsController < ApplicationController
   # GET /lists/new.json
   def new
     @list = List.new
+    @games = Game.all
+    @levels = @list.levels.order("position")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,10 +34,25 @@ class ListsController < ApplicationController
     end
   end
 
+  def add_level
+    list = List.find(params[:list_id])
+    list.list_levels.create level_id: params[:level_id]
+    render nothing: true
+
+  end
+
+  def sort
+    params[:id].each_with_index do |id, index|
+      ListLevel.update_all({position: index+1}, {level_id: id})
+    end
+    render nothing: true
+  end
+
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
     @games = Game.all
+    @levels = @list.levels
   end
 
   # POST /lists

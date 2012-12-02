@@ -14,6 +14,11 @@
 
   %h3
     Juegos
+
+    %ul#levels{"data-update-url" => sort_lists_url}
+      - @levels.each do |level|
+        = content_tag_for :li, level do
+          = level.name
   %span
     Agregá juegos a tu lista haciendo click en el que quieras:
 
@@ -25,7 +30,7 @@
       = game.name
     %div{style: 'margin-right:800px;height:160px;width:100%;'}
       - game.levels.each do |level|
-        = render 'level_card', :game => game, :level => level
+        = render 'level_card', :game => game, :level => level, :list => list
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Grabar'
