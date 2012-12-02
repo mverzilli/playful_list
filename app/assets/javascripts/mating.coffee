@@ -20,12 +20,12 @@ class window.MatingGame
     , 10000)
 
   success: =>
-    @greet()
-    if @attempts == 1
-      @attempts++
-      @restart()
-    else
-      game_finished_success()
+    window.playSound 'iteration-complete', () =>
+      if @attempts == 1
+        @attempts++
+        @restart()
+      else
+        game_finished_success()
 
   error: =>
     @attempts++
@@ -37,10 +37,6 @@ class window.MatingGame
   restart: =>
     $('.right').removeClass 'glow_effect'
     @start_clock()
-
-  greet: =>
-    #TBD
-    alert 'Iupi!'
 
 
 window.on_load = (question) ->
