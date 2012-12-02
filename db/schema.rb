@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20121202135703) do
 
+  create_table "choices", :force => true do |t|
+    t.string   "image"
+    t.string   "group"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "games", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -34,15 +41,23 @@ ActiveRecord::Schema.define(:version => 20121202135703) do
   create_table "list_levels", :force => true do |t|
     t.integer  "list_id"
     t.integer  "level_id"
-    t.integer  "order"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   create_table "lists", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "question"
+    t.integer  "answer"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "level_id"
   end
 
   create_table "session_iters", :force => true do |t|

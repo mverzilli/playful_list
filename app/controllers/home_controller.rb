@@ -3,13 +3,13 @@
 # Refer to sessions controller
 class HomeController < ApplicationController
   def mating
-    choices = ['circle.jpg', 'square.jpg', 'triangle.jpg']
+    mating_instance = Game.all[0].levels[0].generate_iteration
 
-    @choices_left = choices.shuffle
-    @choices_right = choices.shuffle
+    @choices_left = mating_instance.left_column_choices.map { |c| c.image }
+    @choices_right = mating_instance.right_column_choices.map {|c| c.image }
 
-    @question = choices.sample
-    @answer = @question
+    @question = mating_instance.question.image
+    @answer = mating_instance.answer.image
   end
 
   def sequence
