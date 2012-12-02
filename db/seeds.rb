@@ -15,13 +15,13 @@ sequence = Game.create! name: "Secuencia"
 
 
 mating_level_1 = mating.levels.create! name: "Objetos Idénticos", order: 1, duration: 500, repetitions: 2
-mating_level_2 = mating.levels.create! name: "Objetos No Idénticos", order: 2, duration: 1000, repetitions: 1
-mating_level_3 = mating.levels.create! name: "Figura y Fondo", order: 3, duration: 1500, repetitions: 1
-mating_level_4 = mating.levels.create! name: "Parte y Todo", order: 4, duration: 2000, repetitions: 1
-mating_level_5 = mating.levels.create! name: "Asociación", order: 5, duration: 2500, repetitions: 1
+mating_level_2 = mating.levels.create! name: "Objetos No Idénticos", order: 2, duration: 1000, repetitions: 2
+mating_level_3 = mating.levels.create! name: "Figura y Fondo", order: 3, duration: 1500, repetitions: 2
+mating_level_4 = mating.levels.create! name: "Parte y Todo", order: 4, duration: 2000, repetitions: 2
+mating_level_5 = mating.levels.create! name: "Asociación", order: 5, duration: 2500, repetitions: 2
 
-sequence_level_1 = sequence.levels.create! name: "2 elementos", order: 1, duration: 500, repetitions: 1
-sequence_level_2 = sequence.levels.create! name: "3 elementos", order: 3, duration: 1500, repetitions: 3
+sequence_level_1 = sequence.levels.create! name: "2 elementos", order: 1, duration: 500, repetitions: 2
+sequence_level_2 = sequence.levels.create! name: "3 elementos", order: 3, duration: 1500, repetitions: 2
 
 choice1 = Choice.create! image: "circle.jpg", group: "shapes"
 choice2 = Choice.create! image: "square.jpg", group: "shapes"
