@@ -2,28 +2,30 @@
   :javascript
     $(document).ready(function() { on_load('#{@data.question.image}') })
 
-%div
-  %h1
-    Parecidos
+%div.clearfix
+  .pull-right
+    = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
+  %h1.pull-left Parecidos
 
-  %div#container
-    .left_column
-      - @data.left_column_choices.each do |choice|
-        - if choice.image == @data.question.image
-          .left_choice.question
-            = image_tag(asset_path choice.image)
-        - else
-          .left_choice
-            = image_tag(asset_path choice.image)
-    .vertical-rule
-    .right_column
-      - @data.right_column_choices.each do |choice|
-        - if choice.image == @data.answer.image
-          .right
-            = image_tag(asset_path choice.image)
-        - else
-          .wrong
-            = image_tag(asset_path choice.image)
+
+%div#container
+  .left_column
+    - @data.left_column_choices.each do |choice|
+      - if choice.image == @data.question.image
+        .left_choice.question
+          = image_tag(asset_path choice.image)
+      - else
+        .left_choice
+          = image_tag(asset_path choice.image)
+  .vertical-rule
+  .right_column
+    - @data.right_column_choices.each do |choice|
+      - if choice.image == @data.answer.image
+        .right
+          = image_tag(asset_path choice.image)
+      - else
+        .wrong
+          = image_tag(asset_path choice.image)
 
 
 = render 'games/hidden_controls'
