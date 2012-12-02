@@ -1,5 +1,9 @@
 PlayfulList::Application.routes.draw do
-  resources :lists
+
+  resources :lists do
+    collection { post :sort }
+    post 'add_level/:level_id', :action => :add_level
+  end
 
   resources :sessions, :only => [] do
     collection do
