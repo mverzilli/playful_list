@@ -1,3 +1,7 @@
+= content_for :head do
+  :javascript
+    $(document).ready(on_load_list_form)
+
 = form_for @list do |f|
   - if @list.errors.any?
     #error_explanation
@@ -20,13 +24,13 @@
     .row-fluid
       .span4
         .span12
-          = image_tag '/assets/Backyardigans_poster.jpg', :style => 'height:300px;cursor:pointer;'
+          = image_tag '/assets/Backyardigans_poster.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement glow_effect'
       .span4
         .span12
-          = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;'
+          = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
       .span4
         .span12
-          = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;'
+          = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
 
   %hr
 

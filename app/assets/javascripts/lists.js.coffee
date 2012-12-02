@@ -2,6 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+window.on_load_list_form = ->
+  $(document).on('click', '.reinforcement', ->
+    $('.reinforcement').removeClass('glow_effect')
+    $(@).addClass('glow_effect'))
+
 $(document).on('click', '.add_level', ( ->
   $.post "/lists/#{this.getAttribute('data-list-id')}/add_level/#{this.getAttribute('data-level-id')}", ->
     location.reload();
