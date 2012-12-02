@@ -38,7 +38,6 @@ class ListsController < ApplicationController
     list = List.find(params[:list_id])
     list.list_levels.create level_id: params[:level_id]
     render nothing: true
-
   end
 
   def sort
