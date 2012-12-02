@@ -42,8 +42,14 @@ class Mating
 
       questions = level.questions.shuffle.take 3
 
-      @question = questions.sample.question
-      @answer = @question.answer
+      question_answer = questions.sample
+
+      @question = question_answer.question
+
+      @answer = question_answer.answer
+
+      p @question
+      p @answer
 
       @left_column_choices = questions.map { |q| q.question }
       @right_column_choices = questions.map { |q| q.answer }
