@@ -4,7 +4,7 @@ class GameInstanceFactory
 
     if level.game.name == 'Parecidos'
       return Mating::IdenticalObjectsMating.new level if level.order == 1
-      return Mating::NonIdenticalObjectsMating.new level if level.order == 2
+      return Mating::NonIdenticalObjectsMating.new level if level.order >= 2
     elsif level.game.name == 'Secuencia'
       return Sequence.new level
     else
