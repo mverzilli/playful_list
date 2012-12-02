@@ -4,11 +4,15 @@ class Session < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
 
-  has_many :session_iters
+  has_many :session_iters, dependent: :destroy
 
   validates_presence_of :list
 
   serialize :statistics, Hash
+
+  def duration
+    session_iters.map(&:duration).sum
+  end
 
   def level_at_step(step)
     self.list.levels[step]
@@ -20,7 +24,7 @@ class Session < ActiveRecord::Base
     stats = opts[:stats] || {completed: true}
     level = level_at_step(step)
 
-    save_iteration_statistics(step, iteration, stats)
+    save_iteration_statistics(level.id, step, iteration, stats)
 
     # Advance iteration
     iteration += 1
@@ -49,9 +53,8 @@ class Session < ActiveRecord::Base
 
   private
 
-  def save_iteration_statistics(step, iteration, stats)
-    puts "Stats: #{stats.inspect}"
-    session_iters.create(step: step, iteration: iteration, stats: stats)
+  def save_iteration_statistics(level_id, step, iteration, stats)
+    session_iters.create(level_id: level_id, step: step, iteration: iteration, stats: stats)
   end
 
 

@@ -1,0 +1,24 @@
+%h1 Sesión de juego
+%p Iniciada el #{@session.created_at}
+%hr
+- @iters_by_level.each_with_index do |level_with_iters, step|
+  - level, iters = level_with_iters
+  %h3 Nivel #{step+1}: #{level.game.name}, #{level.name}
+  %p Tiempo total: #{iters.map(&:duration).sum}
+
+  %table{border: 1, cellpadding: 10}
+    %thead
+      %tr
+        %th Jugada
+        %th Duración total
+        %th Ayudas necesitadas
+        %th Intentos realizados
+    %tbody
+      - iters.each_with_index do |iter, iter_index|
+        %tr
+          %td= iter_index
+          %td= iter.duration
+          %td= iter.hints
+          %td= iter.attempts
+
+

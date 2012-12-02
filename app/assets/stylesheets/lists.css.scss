@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .add_level:hover {
-  cursor: pointer
+  cursor: pointer;
+  border-color: #FA6900;
+  background-color: #d9ddc3;//#a3d3d0;
 }
 
 #levels .handle {

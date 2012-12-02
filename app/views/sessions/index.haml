@@ -1,0 +1,10 @@
+%h1 Sesiones de juego
+%hr
+
+- if @sessions.any?
+  %ul
+    - @sessions.each do |session|
+      %li
+        = link_to "Juego del #{session.started_at}", session_iters_path(session)
+- else
+  No hay sesiones de juego para esta lista aún.

@@ -1,8 +1,12 @@
 class SessionsController < ApplicationController
 
-  before_filter :load_session, :except => :start
+  before_filter :load_sessions, :only => [:index]
+  before_filter :load_session,  :except => [:start, :index]
   before_filter :load_level,   :only => [:play, :completed]
   before_filter :load_prize,   :only => [:finished_session, :finished_level]
+
+  def index
+  end
 
   def start
     @session = Session.create! started_at: DateTime.now, statistics: {}, list_id: params[:list_id], user: current_user
@@ -10,6 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def play
+    @body_css = 'full_width'
+    
     @data = @level.generate_iteration(@iteration)
     render "/games/#{@level.view_name}"
   end
@@ -55,5 +61,16 @@ class SessionsController < ApplicationController
     @prize_media_name = @session.reinforcement_for_step(params[:from_step].to_i)
     @total_number_of_levels = @session.list.levels.count
   end
+
+  def load_sessions
+    @sessions = if current_user
+      current_user.sessions
+    else
+      Session.scoped
+    end
+
+    @sessions = @sessions.where(list_id: params[:list_id]) if params[:list_id]
+  end
+
 
 end
