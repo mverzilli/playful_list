@@ -12,6 +12,24 @@
 
   %hr
 
+  %h3
+    Refuerzo
+    %br
+    %br
+
+    .row-fluid
+      .span4
+        .span12
+          = image_tag '/assets/Backyardigans_poster.jpg', :style => 'height:300px;cursor:pointer;'
+      .span4
+        .span12
+          = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;'
+      .span4
+        .span12
+          = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;'
+
+  %hr
+
   - if @list.id
     %h3
       Juegos
@@ -38,4 +56,4 @@
 
   -else
     .actions
-      = f.submit 'Agregar juegos'
+      = f.submit 'Guardar y agregar juegos'
