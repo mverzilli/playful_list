@@ -3,13 +3,18 @@
     $(function() {
       if (window.nextUrl) {
         //total_video_duration = $("#videoPlayer").get(0).duration Not working, video is not visible yet. Will use a defult number
-        total_video_duration = 49000
-        prize_duration = total_video_duration / #{@total_number_of_levels} * #{@step}
+        total_video_duration = 49000;
+        prize_duration = total_video_duration / #{@total_number_of_levels} * #{@step};
 
         window.setTimeout(function() {
           window.location = window.nextUrl;
         }, prize_duration);
       }
+
+      // Chrome does not render the video unless a position property is changed or screen is resized
+      window.setInterval(function() {
+        $('video').css('position', 'relative');
+      }, 500);
     });
 
 %video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/#{@prize_media_name}.jpg"}
