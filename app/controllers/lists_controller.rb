@@ -83,7 +83,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.update_attributes(params[:list])
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
+        format.html { redirect_to lists_url, notice: 'List was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

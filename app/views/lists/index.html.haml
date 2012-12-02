@@ -1,20 +1,25 @@
 %h1 Mis listas de juegos
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+- if @lists.empty?
+  %br
+  %p
+    Aún no possee listas de juegos. 
+    = link_to 'Cree una nueva', new_list_path
+  %br
+  %br
+- else
+  %table
+    - @lists.each do |list|
+      %tr
+        %td(style="padding: 10px")= list.name
+        %td
+          .btn-group
+            = link_to 'Jugar', start_sessions_path(list.id), method: :post, :class => 'btn btn-success'
+            = link_to 'Editar', edit_list_path(list), :class => 'btn btn-info'
+            = link_to 'Borrar', list, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-inverse'
+            / = link_to 'View stats', view_stats(list.id)
+            
+  %br
 
-  - @lists.each do |list|
-    %tr
-      %td= list.name
-      %td= link_to 'Play', start_sessions_path(list.id), method: :post
-      %td= link_to 'Edit', edit_list_path(list)
-      %td= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' }
-      / %td= link_to 'View stats', view_stats(list.id)
+= link_to 'Nueva lista de juegos', new_list_path, :class => 'btn btn-primary'
 
-%br
-
-= link_to 'New List', new_list_path

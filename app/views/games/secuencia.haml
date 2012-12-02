@@ -10,7 +10,10 @@
       play_sequence(sequence_data);
     });
 
-%h1 Secuencia
+%div.clearfix
+  .pull-right
+    = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
+  %h1.pull-left Secuencia
 
 #sequence-board
   %h2 Complete la secuencia

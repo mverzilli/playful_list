@@ -4,8 +4,8 @@
 
 = form_for @list do |f|
   - if @list.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@list.errors.count, "error")} prohibited this list from being saved:"
+    #error_explanation.alert.alert-block.alert-error
+      %h4= "#{pluralize(@list.errors.count, "error")} prohibited this list from being saved:"
       %ul
         - @list.errors.full_messages.each do |msg|
           %li= msg
@@ -49,10 +49,13 @@
     %h3
       Juegos
 
-      %ul#levels{"data-update-url" => sort_lists_url}
-        - @levels.each do |level|
-          = content_tag_for :li, level do
+    %ol#levels{"data-update-url" => sort_lists_url}
+      - @levels.each do |level|
+        = content_tag_for :li, level do
+          .well.well-small
             = level.name
+            
+    %br
     %span
       Agregá juegos a tu lista haciendo click en el que quieras:
 
@@ -67,8 +70,9 @@
           = render 'level_card', :game => game, :level => level, :list => @list
 
     .actions
-      = f.submit 'Grabar'
-
+      = f.submit 'Grabar', :class => 'btn btn-primary'
+      = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
   -else
     .actions
-      = f.submit 'Guardar y agregar juegos'
+      = f.submit 'Guardar y agregar juegos', :class => 'btn btn-primary'
+      = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
