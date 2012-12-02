@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20121202135703) do
   create_table "list_levels", :force => true do |t|
     t.integer  "list_id"
     t.integer  "level_id"
-    t.integer  "order"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   create_table "lists", :force => true do |t|

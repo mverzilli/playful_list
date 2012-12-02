@@ -1,6 +1,6 @@
 - content_for :head do
   :javascript
-    $(document).ready(function() { on_load('#{@question}') })
+    $(document).ready(function() { on_load('#{@data.question}') })
 
 %div
   %h1
@@ -8,20 +8,20 @@
 
   %div#container
     .left_column
-      - @choices_left.each do |choice|
-        - if choice == @question
+      - @data.left_column_choices.each do |choice|
+        - if choice.image == @data.question
           .left_choice.question
-            = image_tag(asset_path choice)
+            = image_tag(asset_path choice.image)
         - else
           .left_choice
-            = image_tag(asset_path choice)
+            = image_tag(asset_path choice.image)
     .vertical-rule
     .right_column
-      - @choices_right.each do |choice|
-        - if choice == @answer
+      - @data.right_column_choices.each do |choice|
+        - if choice.image == @data.answer
           .right
-            = image_tag(asset_path choice)
+            = image_tag(asset_path choice.image)
         - else
           .wrong
-            = image_tag(asset_path choice)
+            = image_tag(asset_path choice.image)
 

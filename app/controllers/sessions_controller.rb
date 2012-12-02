@@ -13,6 +13,9 @@ class SessionsController < ApplicationController
 
   def play
     @data = @level.generate_iteration(@iteration)
+
+    p @data
+
     render "/games/#{@level.view_name}"
   end
 
