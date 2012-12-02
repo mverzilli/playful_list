@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202165025) do
+ActiveRecord::Schema.define(:version => 20121202174145) do
 
   create_table "choices", :force => true do |t|
     t.string   "image"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20121202165025) do
     t.text     "stats"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "level_id"
   end
 
   create_table "sessions", :force => true do |t|
