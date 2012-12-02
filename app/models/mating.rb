@@ -15,3 +15,7 @@ class Mating
   def answer
   end
 end
+
+class SameObjectsMating < Mating
+
+end
