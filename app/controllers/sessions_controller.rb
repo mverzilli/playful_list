@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   before_filter :load_sessions, :only => [:index]
   before_filter :load_session,  :except => [:start, :index]
   before_filter :load_level,   :only => [:play, :completed]
-  before_filter :load_prize,   :only => [:finished_session, :finished_level]
+  before_filter :load_prize,   :only => [:finished_list, :finished_level]
 
   def index
   end
@@ -58,7 +58,6 @@ class SessionsController < ApplicationController
     @step = params[:next_step].to_i
     @iteration = 0
     @prize_media_name = @session.reinforcement_for_step(params[:from_step].to_i)
-    puts @prize_media_name
     @total_number_of_levels = @session.list.levels.count
   end
 
