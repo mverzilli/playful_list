@@ -7,7 +7,7 @@ class SessionIter < ActiveRecord::Base
   serialize :stats, Hash
 
   def duration
-    (DateTime.parse(stats['completed_at']) - DateTime.parse(stats['started_at'])) rescue nil
+    ((DateTime.parse(stats['completed_at']) - DateTime.parse(stats['started_at']))  * 24 * 60 * 60).to_i rescue nil
   end
 
   def attempts
