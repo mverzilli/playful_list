@@ -6,9 +6,8 @@ PlayfulList::Application.routes.draw do
       post 'start'
     end
     member do
-      get 'play/:step/:iteration', :action => :play, :as => "play"
-      post 'success/:step/:iteration', :action => :success, :as => 'success'
-      post 'timeout/:step/:iteration', :action => :timeout, :as => 'timeout'
+      get  'play/:step/:iteration', :action => :play,      :as => "play"
+      post 'play/:step/:iteration', :action => :completed, :as => 'completed'
     end
   end
 

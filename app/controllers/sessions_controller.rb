@@ -16,8 +16,9 @@ class SessionsController < ApplicationController
   end
 
   def completed
-    @session.completed_level_iteration!(level: @level, iteration: @iteration, data: @data)
-    @level.completed_iteration!(@iteration)
+    result = @session.completed_iteration!(step: @step, iteration: @iteration, stats: params[:stats])
+    # redirect_to finished_session_path(@session) if result[:]
+    redirect_to play_session_path(@session, result[:step], result[:iteration])
   end
 
   private
