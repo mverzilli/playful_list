@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  started_at: 2012-12-01 21:05:45
+  statistics: MyText
+
+two:
+  started_at: 2012-12-01 21:05:45
+  statistics: MyText

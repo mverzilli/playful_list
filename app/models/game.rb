@@ -4,4 +4,7 @@ class Game < ActiveRecord::Base
 
   validates :name, :presence => true
 
+  def view_name
+    name
+  end
 end
