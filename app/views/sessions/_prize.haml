@@ -12,9 +12,6 @@
       }
     });
 
-%p= prize
-
-%center
-  %video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/Backyardigans_poster.jpg"}
-    %source{:src => "/assets/Backyardigans.mp4", :type => "video/mp4"}
-      %img{:alt => "Film Poster", :height => "180", :src => "/assets/Backyardigans_poster.jpg", :width => "320"}
+%video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/#{@prize_media_name}.jpg"}
+  %source{:src => "/assets/#{@prize_media_name}.mp4", :type => "video/mp4"}
+    %img{:alt => "Film Poster", :height => "180", :src => "/assets/#{@prize_media_name}.jpg", :width => "320"}
