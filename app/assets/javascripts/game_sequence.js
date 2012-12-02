@@ -69,9 +69,11 @@ $(function() {
 
         // ensure no option is highlighted (actual the one that has been pressed)
         self.get_option_for_key(guess.key()).hightlight(false);
+
       } else {
         self.hint_used = true;
         self.get_option_for_key(guess.key()).hightlight(true);
+        window.playSound('call-to-action');
       }
 
       if (self.finished()) {
@@ -86,6 +88,9 @@ $(function() {
           }
         })
       } else {
+        // play small reinforcement
+        if (guess.key() == key) window.playSound('correct');
+
         self.initialize_timeout_timer();
       }
     };

@@ -25,5 +25,5 @@
     %button.btn(data-bind="click: choosed, css: { glow_effect : hightlight }")
       %img(data-bind="attr : { src: image }")
 
-= audio_tag('fanfare.wav', id: 'iteration-complete')
-= hidden_complete_iteration_form
+-# TODO: This should be part of a layout that affects all games
+= render 'games/hidden_controls'

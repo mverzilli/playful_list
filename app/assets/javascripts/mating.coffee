@@ -33,6 +33,7 @@ class window.MatingGame
 
   hint: =>
     $('.right').addClass 'glow_effect'
+    window.playSound 'call-to-action'
 
   restart: =>
     $('.right').removeClass 'glow_effect'
