@@ -120,12 +120,12 @@ mar = Choice.create! image: 'mar.png'
 cielo = Choice.create! image: 'cielo.png'
 mar = Choice.create! image: 'mar.png'
 
-Question.create! question: locomotora, answer: vias, level_id: mating_level_4.id
-Question.create! question: auto2, answer: ruta, level_id: mating_level_4.id
-Question.create! question: avion3, answer: cielo, level_id: mating_level_4.id
-Question.create! question: velero, answer: mar, level_id: mating_level_4.id
-Question.create! question: helicoptero, answer: cielo, level_id: mating_level_4.id
-Question.create! question: barco2, answer: mar, level_id: mating_level_4.id
+Question.create! question: locomotora, answer: vias, level_id: mating_level_5.id
+Question.create! question: auto2, answer: ruta, level_id: mating_level_5.id
+Question.create! question: avion3, answer: cielo, level_id: mating_level_5.id
+Question.create! question: velero, answer: mar, level_id: mating_level_5.id
+Question.create! question: helicoptero, answer: cielo, level_id: mating_level_5.id
+Question.create! question: barco2, answer: mar, level_id: mating_level_5.id
 
 
 dentifrico = Choice.create! image: 'dentifrico.png'
@@ -148,3 +148,24 @@ Question.create! question: lapiz, answer: sacapuntas, level_id: mating_level_5.i
 Question.create! question: tempera, answer: pincel2, level_id: mating_level_5.id
 Question.create! question: perro2, answer: cucha, level_id: mating_level_5.id
 Question.create! question: cerradura, answer: llave, level_id: mating_level_5.id
+
+auto = Choice.create! image: 'auto.png'
+mamadera = Choice.create! image: 'mamadera.png'
+kitty = Choice.create! image: 'kitty.png'
+arbolparte = Choice.create! image: 'arbol-parte.png'
+avion = Choice.create! image: 'avion.png'
+scooby = Choice.create! image: 'scooby.png'
+
+rueda = Choice.create! image: 'rueda.png'
+tetina = Choice.create! image: 'tetina.png'
+kittyparte = Choice.create! image: 'kitty-parte.png'
+ramas = Choice.create! image: 'ramas.png'
+helice = Choice.create! image: 'helice.png'
+pata = Choice.create! image: 'pata.png'
+
+Question.create! question: auto, answer: rueda, level_id: mating_level_4.id
+Question.create! question: mamadera, answer: tetina, level_id: mating_level_4.id
+Question.create! question: kitty, answer: kittyparte, level_id: mating_level_4.id
+Question.create! question: arbolparte, answer: ramas, level_id: mating_level_4.id
+Question.create! question: avion, answer: helice, level_id: mating_level_4.id
+Question.create! question: scooby, answer: pata, level_id: mating_level_4.id
