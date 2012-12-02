@@ -1,11 +1,12 @@
 class Level < ActiveRecord::Base
   belongs_to :game
 
-  attr_accessible :duration, :name, :order
+  attr_accessible :duration, :name, :order, :repetitions
 
   validates :game_id, :presence => true
   validates :order, :presence => true
   validates :duration, :presence => true
+  validates :repetitions, :presence => true
 
   def generate_iteration(iteration=nil)
     # TODO: Fill with data required by level's game

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202011717) do
+ActiveRecord::Schema.define(:version => 20121202033637) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(:version => 20121202011717) do
     t.integer  "duration"
     t.integer  "order"
     t.integer  "game_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "repetitions"
   end
 
   add_index "levels", ["game_id"], :name => "index_levels_on_game_id"
@@ -33,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20121202011717) do
   create_table "list_levels", :force => true do |t|
     t.integer  "list_id"
     t.integer  "level_id"
-    t.integer  "order"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "position"
