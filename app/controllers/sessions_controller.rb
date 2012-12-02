@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def play
     @body_css = 'full_width'
-    
+
     @data = @level.generate_iteration(@iteration)
     render "/games/#{@level.view_name}"
   end
@@ -59,6 +59,7 @@ class SessionsController < ApplicationController
     @step = params[:next_step].to_i
     @iteration = 0
     @prize_media_name = @session.reinforcement_for_step(params[:from_step].to_i)
+    puts @prize_media_name
     @total_number_of_levels = @session.list.levels.count
   end
 
