@@ -1,7 +1,11 @@
+= content_for :head do
+  :javascript
+    $(document).ready(on_load_list_form)
+
 = form_for @list do |f|
   - if @list.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@list.errors.count, "error")} prohibited this list from being saved:"
+    #error_explanation.alert.alert-block.alert-error
+      %h4= "#{pluralize(@list.errors.count, "error")} prohibited this list from being saved:"
       %ul
         - @list.errors.full_messages.each do |msg|
           %li= msg
@@ -17,16 +21,27 @@
     %br
     %br
 
+    = hidden_field_tag(:video, "/assets/#{@list.video}.jpg")
+
     .row-fluid
       .span4
         .span12
-          = image_tag '/assets/Backyardigans_poster.jpg', :style => 'height:300px;cursor:pointer;'
+          - if @list.video == 'backyardigans'
+            = image_tag '/assets/backyardigans.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement glow_effect'
+          - else
+            = image_tag '/assets/backyardigans.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
       .span4
         .span12
-          = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;'
+          - if @list.video == 'ben10'
+            = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement glow_effect'
+          - else
+            = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
       .span4
         .span12
-          = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;'
+          - if @list.video == 'lazytown'
+            = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement glow_effect'
+          - else
+            = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
 
   %hr
 
@@ -34,10 +49,13 @@
     %h3
       Juegos
 
-      %ul#levels{"data-update-url" => sort_lists_url}
-        - @levels.each do |level|
-          = content_tag_for :li, level do
+    %ol#levels{"data-update-url" => sort_lists_url}
+      - @levels.each do |level|
+        = content_tag_for :li, level do
+          .well.well-small
             = level.name
+            
+    %br
     %span
       Agregá juegos a tu lista haciendo click en el que quieras:
 
@@ -52,8 +70,9 @@
           = render 'level_card', :game => game, :level => level, :list => @list
 
     .actions
-      = f.submit 'Grabar'
-
+      = f.submit 'Grabar', :class => 'btn btn-primary'
+      = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
   -else
     .actions
-      = f.submit 'Guardar y agregar juegos'
+      = f.submit 'Guardar y agregar juegos', :class => 'btn btn-primary'
+      = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'

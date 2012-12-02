@@ -2,15 +2,19 @@
   :javascript
     $(function() {
       if (window.nextUrl) {
-        // This 2000 will change to {video_length} / #levelsOnList * #currentlevel
+        //total_video_duration = $("#videoPlayer").get(0).duration Not working, video is not visible yet. Will use a defult number
+        total_video_duration = 49000
+        prize_duration = total_video_duration / #{@total_number_of_levels} * #{@step}
+
         window.setTimeout(function() {
           window.location = window.nextUrl;
-        }, 2000);
+        }, prize_duration);
       }
     });
 
 %p= prize
 
-%video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/Backyardigans_poster.jpg"}
-  %source{:src => "/assets/Backyardigans.mp4", :type => "video/mp4"}
-    %img{:alt => "Film Poster", :height => "180", :src => "/assets/Backyardigans_poster.jpg", :width => "320"}
+%center
+  %video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/Backyardigans_poster.jpg"}
+    %source{:src => "/assets/Backyardigans.mp4", :type => "video/mp4"}
+      %img{:alt => "Film Poster", :height => "180", :src => "/assets/Backyardigans_poster.jpg", :width => "320"}

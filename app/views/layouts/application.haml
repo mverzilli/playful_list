@@ -9,5 +9,8 @@
     = yield :head
 
 %body
-  .container
+  %div{ :class => "container " + (@body_css || "") }
+    - unless notice.blank?
+      .alert.alert-success
+        = notice
     = yield
