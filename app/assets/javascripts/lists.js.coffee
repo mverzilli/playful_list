@@ -5,7 +5,8 @@
 window.on_load_list_form = ->
   $(document).on('click', '.reinforcement', ->
     $('.reinforcement').removeClass('glow_effect')
-    $(@).addClass('glow_effect'))
+    $(@).addClass('glow_effect')
+    $('#video').attr('value', @.src))
 
 $(document).on('click', '.add_level', ( ->
   $.post "/lists/#{this.getAttribute('data-list-id')}/add_level/#{this.getAttribute('data-level-id')}", ->
