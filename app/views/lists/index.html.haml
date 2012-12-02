@@ -10,7 +10,7 @@
   - @lists.each do |list|
     %tr
       %td= list.name
-      %td= link_to 'Play', list
+      %td= link_to 'Play', start_sessions_path(list.id), method: :post
       %td= link_to 'Edit', edit_list_path(list)
       %td= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' }
 

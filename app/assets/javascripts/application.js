@@ -17,5 +17,10 @@
 //= require_tree .
 
 window.game_finished_success = function () {
-  alert('Hurray finished!');
+  var stats = {
+    completed_at: new Date()
+  };
+
+  $('#stats').val(JSON.stringify(stats));
+  $('form#completeIteration').submit();
 }

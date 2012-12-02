@@ -1,0 +1,12 @@
+- content_for(:head) do
+  :javascript
+    // TODO: Here the prize should play and then redirect to window.nextUrl; for now, there is just a timeout
+    $(function() {
+      if (window.nextUrl) {
+        window.setTimeout(function() {
+          window.location = window.nextUrl;
+        }, 2000);
+      }
+    });
+
+%p= prize

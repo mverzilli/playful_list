@@ -1,12 +1,12 @@
 class Session < ActiveRecord::Base
-  attr_accessible :started_at, :statistics, :list_id, :user_id
+  attr_accessible :started_at, :statistics, :list_id, :list, :user_id, :user
+
   belongs_to :user
   belongs_to :list
 
   validates_presence_of :list
-  validates_presence_of :user
 
-  serializes :statistics, Hash
+  serialize :statistics, Hash
 
   def level_at_step(step)
     self.list.levels[step]
@@ -30,7 +30,7 @@ class Session < ActiveRecord::Base
       new_level = level_at_step(step)
 
       # If there is no new level, then we have completed the full list, double hooray!
-      return {:list_completed => true} if new_level.nil?
+      return {:level_completed => level, :step => step, :list_completed => true} if new_level.nil?
 
       # Return info on level completed otherwise
       return {:level_completed => level, :step => step, :iteration => 0}
@@ -39,6 +39,10 @@ class Session < ActiveRecord::Base
       return {:step => step, :iteration => iteration}
     end
 
+  end
+
+  def reinforcement_for_step(step)
+    "El premio para el nivel #{step} deberia estar aqui. En cambio, mostramos este texto. Esperemos puedan apreciarlos igual."
   end
 
   private

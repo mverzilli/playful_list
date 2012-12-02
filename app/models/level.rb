@@ -6,7 +6,7 @@ class Level < ActiveRecord::Base
   validates :game_id, :presence => true
   validates :order, :presence => true
   validates :duration, :presence => true
-  validates :repetitions, :presence => true, :greater_than => 0
+  validates :repetitions, :presence => true
 
   def generate_iteration(iteration=nil)
     # TODO: Fill with data required by level's game
