@@ -73,7 +73,7 @@ sol = Choice.create! image: 'sol.png'
 arbolnegro = Choice.create! image: 'arbol-negro.png'
 casanegra = Choice.create! image: 'casa-negra.png'
 pelotanegra = Choice.create! image: 'pelota-negra.png'
-manzananegra = Choice.create! image: 'manzana negra.png'
+manzananegra = Choice.create! image: 'manzana-negra.png'
 solnegro = Choice.create! image: 'sol-negro.png'
 
 Question.create! question: arbolcolor, answer: arbolnegro, level_id: mating_level_3.id
