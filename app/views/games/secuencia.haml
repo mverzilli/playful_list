@@ -10,23 +10,19 @@
       play_sequence(sequence_data);
     });
 
-%div.clearfix
-  .pull-right
-    = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
-  %h1.pull-left Secuencia
+= game_title 'Secuencia'
 
 #sequence-board
-  %h2 Complete la secuencia
-
-  .row(data-bind="foreach: sequence")
-    .bucket.well(data-bind="css : { guess: visible() == false }")
-      %img(data-bind="attr : { src: image }")
+  .row.sequence(data-bind="foreach: sequence")
+    .bucket(data-bind="style : { width : size_px, height : size_px }")
+      .bucket_inner(data-bind="css : { guess: visible() == false }")
+        %img(data-bind="attr : { src: image }")
 
   %h2 Opciones
-
-  .row(data-bind="foreach: elements")
+  
+  .row(style="text-align: center;" data-bind="foreach: elements")
     %button.btn(data-bind="click: choosed, css: { glow_effect : hightlight }")
-      %img(data-bind="attr : { src: image }")
+      %img(data-bind="attr : { src: image }, style : { width : size_px, height : size_px }")
 
 -# TODO: This should be part of a layout that affects all games
 = render 'games/hidden_controls'

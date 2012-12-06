@@ -1,9 +1,12 @@
 
 $(function() {
-  function BucketViewModel(element, json_elements) {
+  function BucketViewModel(element, json_elements, game) {
     var self = this;
     ko.mapping.fromJS(element, {}, self);
-
+    
+    self.size_px = ko.computed(function(){
+      return game.sequence_size() + 'px'
+    });
     self.image = ko.observable(json_elements[element.key]);
   }
 
@@ -16,6 +19,10 @@ $(function() {
     self.choosed = function() {
       game.process_user_response(self.key());
     };
+
+    self.size_px = ko.computed(function(){
+      return game.sequence_size() + 'px'
+    });
   }
 
   function GameViewModel() {
@@ -25,6 +32,7 @@ $(function() {
     self.elements = ko.observableArray();
     self.original_data = null;
     self.timeout_timer = null;
+    self.sequence_size = ko.observable(128);
 
     self.restart = function() {
       self.load_sequence(self.original_data);
@@ -55,7 +63,7 @@ $(function() {
 
       self.sequence.removeAll();
       $.each(data.goal, function(i, e){
-        self.sequence.push(new BucketViewModel(e, data.elements));
+        self.sequence.push(new BucketViewModel(e, data.elements, self));
       });
 
       self.initialize_timeout_timer();
@@ -127,7 +135,16 @@ $(function() {
   window.play_sequence = function(data) {
     var view_model = new GameViewModel();
     view_model.load_sequence(data);
+    window.foo = view_model;
+    var perform_layout = function(){
+      view_model.sequence_size(Math.floor($(".row.sequence").width() / view_model.sequence().length) - 10);
+    };
+    perform_layout();
+    $(window).resize(perform_layout);
+        
     ko.applyBindings(view_model, $("#sequence-board")[0]);
+    
+    $('html, body').scrollTop($("#sequence-board").offset().top);
   }
 
 });

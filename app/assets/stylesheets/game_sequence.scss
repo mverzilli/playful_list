@@ -4,27 +4,34 @@
     position: relative; 
     margin-left: 0px;
     .bucket { 
-      float: left; 
+      float: left;
       margin: 4px;
-      width: 128px;
-      height: 128px;
-      vertical-align: middle;
-      text-align: center;
+      .bucket_inner {
+        margin: 4px;
+        height: 100%; width: 100%;
+        vertical-align: middle;
+        text-align: center;
+        background-color: white;
       
-      img { height: 128px; width: 128px; }
+        img { height: 100%; width: 100%; }
       
-      &.guess {
-        background: white url('/assets/square-guess.png') no-repeat 50% 50%;
-        img { display: none; }
+        &.guess {
+          background: white url('/assets/square-guess.png') no-repeat 50% 50%;
+          img { display: none; }
+        }
       }
     }
     
     .btn {
-      height: 96px; width: 96px;
+      // height: 96px; width: 96px;
       vertical-align: middle;
       text-align: center;
-      margin-left: 4px;
-      margin-right: 0px;
+      margin-left: 15px;
+      margin-right: 15px;
+      padding: 15px;
+      
+      box-shadow: 5px 5px 9px #888;
+      background: white;
     }
   }
 }

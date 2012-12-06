@@ -6,5 +6,9 @@ module ApplicationHelper
       hidden_field_tag 'stats'
     end
   end
+  
+  def game_title(text)
+    render 'shared/game_title', :text => text
+  end
 
 end

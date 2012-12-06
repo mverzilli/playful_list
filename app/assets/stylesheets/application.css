@@ -47,8 +47,8 @@ h1, h2, h3 {
 }
 
 .container.full_width, .navbar-static-top .container.full_width, .navbar-fixed-top .container.full_width, .navbar-fixed-bottom .container.full_width {
-  width: 90% !important;
-  margin: 40px 40px !important;
+  width: 95% !important;
+  margin: 10px 10px !important;
 }
 
 .left_column {
