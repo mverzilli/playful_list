@@ -1,5 +1,4 @@
 class SessionsItersController < ApplicationController
-
   before_filter :load_session
 
   def index

@@ -1,8 +1,10 @@
 class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
+  before_filter :authenticate_user!
+
   def index
-    @lists = List.all
+    @lists = current_user.lists
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class ListsController < ApplicationController
   # GET /lists/new.json
   def new
     @list = List.new
+    @list.user = current_user
     @games = Game.all
     @levels = @list.levels.order("position")
 
@@ -35,7 +38,7 @@ class ListsController < ApplicationController
   end
 
   def add_level
-    list = List.find(params[:list_id])
+    list = current_user.lists.find(params[:list_id])
     list.list_levels.create level_id: params[:level_id]
     render nothing: true
   end
@@ -49,7 +52,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
     @games = Game.all
     @levels = @list.levels
   end
@@ -61,6 +64,7 @@ class ListsController < ApplicationController
     params[:list][:video] = video[video.rindex("/")+1..video.rindex(".")-1]
 
     @list = List.new(params[:list])
+    @list.user = current_user
 
     respond_to do |format|
       if @list.save
@@ -79,7 +83,7 @@ class ListsController < ApplicationController
     video = params[:video]
     params[:list][:video] = video[video.rindex("/")+1..video.rindex(".")-1]
 
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
 
     respond_to do |format|
       if @list.update_attributes(params[:list])
@@ -95,7 +99,7 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
     @list.destroy
 
     respond_to do |format|

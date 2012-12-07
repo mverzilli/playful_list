@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   before_filter :load_sessions, :only => [:index]
   before_filter :load_session,  :except => [:start, :index]
   before_filter :load_level,   :only => [:play, :completed, :too_many_attempts]
