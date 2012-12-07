@@ -8,3 +8,7 @@
         = link_to "Juego del #{session.started_at}", session_iters_path(session)
 - else
   No hay sesiones de juego para esta lista aún.
+
+%hr
+
+= link_to 'Volver a Mis Listas', lists_path, :class => 'btn btn-primary'
