@@ -1,31 +1,48 @@
 - content_for :head do
   :javascript
     $(document).ready(function() { on_load('#{@data.question.image}') })
+    
+    $(function(){
+      var perform_layout = function(){
+        var size_a = ($(window).height() - 110) / 3;
+        var size_b = ($(window).width() - 170) / 2;
+        
+        var size = size_a > size_b ? size_b : size_a;
+        var image_size = (size - 20) + 'px'
+        
+        $('.left_column img, .right_column img')
+          .css('width', image_size)
+          .css('height', image_size);
+      };
+      perform_layout();
+      $(window).resize(perform_layout);
+    });
 
-%div.clearfix
-  .pull-right
-    = link_to 'Volver mis listas', lists_path, :class => 'btn btn-link'
-  %h1.pull-left Parecidos
+= game_title 'Parecidos'
 
-
-%div#container
+%div
   .left_column
-    - @data.left_column_choices.each do |choice|
-      - if choice.image == @data.question.image
-        .left_choice.question
-          = image_tag(asset_path(choice.image), style: 'height: 200px;')
-      - else
-        .left_choice
-          = image_tag(asset_path(choice.image), style: 'height: 200px;')
-  .vertical-rule
-  .right_column
-    - @data.right_column_choices.each do |choice|
-      - if choice.image == @data.answer.image
-        .right
-          = image_tag(asset_path(choice.image), style: 'height: 200px;')
-      - else
-        .wrong
-          = image_tag(asset_path(choice.image), style: 'height: 200px;')
+    %div
+      - @data.left_column_choices.each do |choice|
+        - if choice.image == @data.question.image
+          .left_choice.question
+            = image_tag(asset_path(choice.image))
+        - else
+          .left_choice
+            = image_tag(asset_path(choice.image))
+        %br
 
+  .right_column
+    %div
+      - @data.right_column_choices.each do |choice|
+        - if choice.image == @data.answer.image
+          .right
+            = image_tag(asset_path(choice.image))
+        - else
+          .wrong
+            = image_tag(asset_path(choice.image))
+        %br
+        
+  .clear
 
 = render 'games/hidden_controls'

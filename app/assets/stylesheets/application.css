@@ -51,35 +51,6 @@ h1, h2, h3 {
   margin: 10px 10px !important;
 }
 
-.left_column {
-  margin-right:60px;
-  float:left;
-}
-
-.left_choice, .right, .wrong {
-  height: 200px;
-  width: 200px;
-  border: 10px solid white;
-}
-
-.question {
-  border: 10px solid orange;
-}
-
-.vertical-rule {
-  float:left;
-  height:800px;
-  width:1px;
-  border-left:1px #000 solid;
-}
-
-.right_column {
-  margin-left:60px;
-  float:left;
-}
-
-
-
 /*66, 140, 240 --> 255,187,47*/
 /*0, 140, 255 --> 239,159,47 */
 /* rgb(255,197,0) */
@@ -151,34 +122,40 @@ h1, h2, h3 {
   animation-timing-function: ease-in-out;
 }
 
-#container {
-  margin-left:300px;
+.left_column {
+    display: inline-block; 
+    width: 48%; 
+    border-right: 2px solid white; 
+    float: left;
 }
 
-.left_column {
-  margin-right:60px;
-  float:left;
+.left_column > div {
+    margin-right: 70px;
+    text-align: right;
+}
+
+.right_column {
+    display: inline-block; 
+    width: 48%; 
+    text-align: left; 
+    float: left
+}
+
+.right_column > div {
+    text-align: left;
+    margin-left: 70px
 }
 
 .left_choice, .right, .wrong {
-  height: 200px;
-  width: 200px;
-  border: 10px solid #eeeeee;
-  margin: 10px;
+    display: inline-block;
+    margin: 10px 10px;
 }
 
 .question {
   border: 10px solid orange;
+  margin: 0px 0px;
 }
 
-.vertical-rule {
-  float:left;
-  height:800px;
-  width:1px;
-  border-left:1px #000 solid;
-}
-
-.right_column {
-  margin-left:60px;
-  float:left;
+.clear {
+    clear: both;
 }
