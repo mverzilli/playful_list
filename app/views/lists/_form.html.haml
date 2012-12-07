@@ -32,16 +32,17 @@
             = image_tag '/assets/backyardigans.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
       .span4
         .span12
-          - if @list.video == 'ben10'
-            = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement glow_effect'
-          - else
-            = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
-      .span4
-        .span12
           - if @list.video == 'lazytown'
             = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement glow_effect'
           - else
             = image_tag '/assets/lazytown.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
+      .span4
+        .span12
+          - if @list.video == 'ben10'
+            = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement glow_effect'
+          - else
+            = image_tag '/assets/ben10.jpg', :style => 'height:300px;cursor:pointer;', :class => 'reinforcement'
+
 
   %hr
 
