@@ -12,14 +12,21 @@
 
 = game_title 'Secuencia'
 
+%br
+%br
+%br
+
 #sequence-board
   .row.sequence(data-bind="foreach: sequence")
     .bucket(data-bind="style : { width : size_px, height : size_px }")
       .bucket_inner(data-bind="css : { guess: visible() == false }")
         %img(data-bind="attr : { src: image }")
 
-  %h2 Opciones
-  
+  %br
+  %br
+  %br
+  %br
+
   .row(style="text-align: center;" data-bind="foreach: elements")
     %button.btn(data-bind="click: choosed, css: { glow_effect : hightlight }")
       %img(data-bind="attr : { src: image }, style : { width : size_px, height : size_px }")

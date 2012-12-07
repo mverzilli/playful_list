@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout 'headless'
 
   before_filter :load_sessions, :only => [:index]
   before_filter :load_session,  :except => [:start, :index]

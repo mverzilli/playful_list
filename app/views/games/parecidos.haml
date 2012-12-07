@@ -1,15 +1,15 @@
 - content_for :head do
   :javascript
     $(document).ready(function() { on_load('#{@data.question.image}') })
-    
+
     $(function(){
       var perform_layout = function(){
         var size_a = ($(window).height() - 110) / 3;
         var size_b = ($(window).width() - 170) / 2;
-        
+
         var size = size_a > size_b ? size_b : size_a;
         var image_size = (size - 20) + 'px'
-        
+
         $('.left_column img, .right_column img')
           .css('width', image_size)
           .css('height', image_size);
@@ -42,7 +42,7 @@
           .wrong
             = image_tag(asset_path(choice.image))
         %br
-        
+
   .clear
 
 = render 'games/hidden_controls'
