@@ -1,12 +1,7 @@
-%center
-  %h1(style="font-family: 'Pacifico'; font-size: 56px;") 
-    %span(style="color: #fdb02e") ¡Puedo
-    %span(style="color: #F38630;") jugar
-    %span(style="color: #FA6900;") solo!
-
-%hr
 
 %h2 Mis listas de juegos
+
+%hr
 
 - if @lists.empty?
   %br
@@ -28,7 +23,7 @@
             = link_to 'Borrar', list, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-inverse'
 
 
-  %br
+  %hr
 
 = link_to 'Nueva lista de juegos', new_list_path, :class => 'btn btn-primary'
 
