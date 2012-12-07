@@ -19,10 +19,10 @@
               %span(style="color: #F38630;") jugar
               %span(style="color: #FA6900;") solo!
     %ul.nav{style:"width:100%;background-color:#F38630;"}
-      %li.active
-        %a{href:"#"}
+      %li{:class =>"#{"active" if params[:controller] == "home"}"}
+        %a{href:"#{}"}
           ="Inicio"
-      %li
+      %li{:class =>"#{"active" if params[:controller] == "lists"}"}
         %a{href:"#"}
           ="Mis Listas"
       %ul.nav.pull-right

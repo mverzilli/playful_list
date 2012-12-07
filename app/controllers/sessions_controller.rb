@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout :resolve_layout
   before_filter :load_sessions, :only => [:index]
   before_filter :load_session,  :except => [:start, :index]
   before_filter :load_level,   :only => [:play, :completed, :too_many_attempts]
@@ -81,6 +82,14 @@ class SessionsController < ApplicationController
     end
 
     @sessions = @sessions.where(list_id: params[:list_id]) if params[:list_id]
+  end
+
+  def resolve_layout
+    if action_name == 'index'
+      'application'
+    else
+      'headless'
+    end
   end
 
 
