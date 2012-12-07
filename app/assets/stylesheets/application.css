@@ -13,7 +13,7 @@
  * = require_tree .
 */
 
-html, body { background-color: #A7DBD8; }
+html, body { background-color: #ebe7e0; }
 .container {
     background-color: #ebe7e0; /*E0E4CC; */
     margin-top: 40px;
@@ -123,9 +123,9 @@ h1, h2, h3 {
 }
 
 .left_column {
-    display: inline-block; 
-    width: 48%; 
-    border-right: 2px solid white; 
+    display: inline-block;
+    width: 48%;
+    border-right: 2px solid white;
     float: left;
 }
 
@@ -135,9 +135,9 @@ h1, h2, h3 {
 }
 
 .right_column {
-    display: inline-block; 
-    width: 48%; 
-    text-align: left; 
+    display: inline-block;
+    width: 48%;
+    text-align: left;
     float: left
 }
 

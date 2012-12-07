@@ -2,13 +2,29 @@
 %html
   %head
     %title
-      PlayfulList
+      ¡Puedo Jugar Solo!
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield :head
 
 %body
+  .navbar
+    .navbar-inner
+      .brand
+        %center
+          %h1(style="font-family: 'Pacifico'; font-size: 56px;")
+            %a{href:"/", style:"text-decoration:none;"}
+              %span(style="color: #fdb02e") ¡Puedo
+              %span(style="color: #F38630;") jugar
+              %span(style="color: #FA6900;") solo!
+    %ul.nav{style:"width:100%;background-color:#F38630;"}
+      %li.active
+        %a{href:"#"}
+          ="Inicio"
+      %li
+        %a{href:"#"}
+          ="Mis Listas"
   %div{ :class => "container " + (@body_css || "") }
     #user_nav
       - if user_signed_in?
