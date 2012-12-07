@@ -1,0 +1,18 @@
+<h2>Crea una nueva cuenta</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email, 'Ingresa tu email' %>
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password, 'Crea una contraseña' %>
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation, 'Confirma tu contraseña' %>
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Crear", class: 'btn btn-primary' %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

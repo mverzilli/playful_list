@@ -25,7 +25,6 @@
       %li
         %a{href:"#"}
           ="Mis Listas"
-  %div{ :class => "container " + (@body_css || "") }
     #user_nav
       - if user_signed_in?
         Signed in as #{current_user.email}. Not you?
@@ -36,6 +35,7 @@
         \#{link_to "Sign in", new_user_session_path}
         or
         \#{link_to "Sign in as a demo user", sign_in_as_demo_user_path}
+  %div{ :class => "container " + (@body_css || "") }
     - unless notice.blank?
       .alert.alert-success
         = notice
