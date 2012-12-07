@@ -18,4 +18,8 @@ class SessionIter < ActiveRecord::Base
     stats['hints'].to_i rescue nil
   end
 
+  def too_many_attempts?
+    stats['too_many_attempts']
+  end
+
 end

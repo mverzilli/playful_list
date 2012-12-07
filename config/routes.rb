@@ -12,6 +12,7 @@ PlayfulList::Application.routes.draw do
     member do
       get  'play/:step/:iteration', :action => :play,      :as => "play"
       post 'play/:step/:iteration', :action => :completed, :as => 'completed'
+      post 'too_many_attempts/:step/:iteration', :action => :too_many_attempts, :as => 'too_many_attempts'
       get  'hooray', :action => :finished_level,   :as => 'finished_level'
       get  'finish', :action => :finished_list,    :as => 'finished_list'
     end

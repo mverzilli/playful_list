@@ -15,10 +15,17 @@
         %th Intentos realizados
     %tbody
       - iters.each_with_index do |iter, iter_index|
-        %tr
-          %td= iter_index
-          %td= "#{iter.duration} segundos"
-          %td= iter.hints
-          %td= iter.attempts
+        - if iter.too_many_attempts?
+          %tr
+            %td= iter_index
+            %td= "#{iter.duration} segundos"
+            %td{colspan: 2}
+              = "Excedió el límite de errores por jugada"
+        - else
+          %tr
+            %td= iter_index
+            %td= "#{iter.duration} segundos"
+            %td= iter.hints
+            %td= iter.attempts
 
 

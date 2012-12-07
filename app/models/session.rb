@@ -18,6 +18,18 @@ class Session < ActiveRecord::Base
     self.list.levels[step]
   end
 
+  def too_many_attempts!(opts={})
+    step = opts[:step]
+    iteration = opts[:iteration]
+    stats = opts[:stats] || {completed: true}
+    level = level_at_step(step)
+
+    save_iteration_statistics(level.id, step, iteration, stats)
+
+    #Replay the same iteration and level
+    return {:step => step, :iteration => iteration}
+  end
+
   def completed_iteration!(opts={})
     step = opts[:step]
     iteration = opts[:iteration]

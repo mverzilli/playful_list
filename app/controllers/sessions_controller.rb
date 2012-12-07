@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   before_filter :load_sessions, :only => [:index]
   before_filter :load_session,  :except => [:start, :index]
-  before_filter :load_level,   :only => [:play, :completed]
+  before_filter :load_level,   :only => [:play, :completed, :too_many_attempts]
   before_filter :load_prize,   :only => [:finished_list, :finished_level]
 
   def index
@@ -17,6 +17,19 @@ class SessionsController < ApplicationController
     @body_css = 'full_width'
     @data = @level.generate_iteration(@iteration)
     render "/games/#{@level.view_name}"
+  end
+
+  def too_many_attempts
+    stats = params[:stats_too_many] ? JSON.parse(params[:stats_too_many]) : {}
+
+    p stats
+    p @step
+    p @iteration
+
+    result = @session.too_many_attempts!(step: @step, iteration: @iteration, stats: stats)
+
+    # Play another instance of the same level and iteration
+    redirect_to play_session_path(@session, result[:step], result[:iteration])
   end
 
   def completed

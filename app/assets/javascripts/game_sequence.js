@@ -98,9 +98,14 @@ $(function() {
           }
         })
       } else {
-        // play small reinforcement
-        if (guess.key() == key) window.playSound('correct');
+        if (guess.key() == key)
+          window.playSound('correct')
+        else
+          window.stats['errors'] = window.stats['errors'] + 1;
 
+        if (window.stats['errors'] > 5) window.game_finished_too_many_attempts();
+
+        // play small reinforcement
         self.initialize_timeout_timer();
       }
     };

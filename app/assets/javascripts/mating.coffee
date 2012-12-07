@@ -30,6 +30,9 @@ class window.MatingGame
 
   error: =>
     @attempts++
+
+    game_finished_too_many_attempts() if @attempts > 5
+
     @hint()
 
   hint: =>
