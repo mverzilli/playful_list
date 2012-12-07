@@ -14,4 +14,11 @@ class HomeController < ApplicationController
 
   def sequence
   end
+
+  def sign_in_as_demo_user
+    user = User.find_by_email 'demo@demo.com'
+    sign_in(:user, user)
+    redirect_to root_path
+
+  end
 end
