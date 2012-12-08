@@ -19,10 +19,8 @@
               %span(style="color: #F38630;") jugar
               %span(style="color: #FA6900;") solo!
     %ul.nav{style:"width:100%;background-color:#F38630;"}
-      %li{:class =>"#{"active" if params[:controller] == "home" && params[:action] == "index"}"}
-        %a{href:"#{}"}
-          ="Inicio"
-      %li{:class =>"#{"active" if params[:controller] == "lists"}"}
+      - if user_signed_in?
+        %li{:class =>"#{"active" if params[:controller] == "lists"}"}
           =link_to "Mis Listas", lists_path
       %li{:class =>"#{"active" if params[:controller] == "home" && params[:action] = "por_que"}"}
         =link_to "¿Por qué 'Puedo Jugar Solo'?", por_que_path
@@ -34,7 +32,7 @@
           %li
             = link_to "Crea una cuenta", new_user_registration_path
           %li
-            = link_to "Ingresa al sistema", new_user_session_path
+            = link_to "Entra", new_user_session_path
           %li
             = link_to "Ingresa como usuario demo", sign_in_as_demo_user_path
   %div{ :class => "container " + (@body_css || "") }

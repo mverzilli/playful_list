@@ -1,4 +1,5 @@
-<h2>Acceder</h2>
+<div class="well">
+<h2>Entra</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %>
@@ -13,7 +14,8 @@
 
   <% end -%>
 
-  <div><%= f.submit "Acceder", class: 'btn btn-primary'  %></div>
+  <div><%= f.submit "Entra", class: 'btn btn-primary'  %></div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>

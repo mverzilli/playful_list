@@ -4,6 +4,7 @@ class ListsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    p 'user authorized'
     @lists = current_user.lists
 
     respond_to do |format|
