@@ -1,6 +1,45 @@
 - content_for(:head) do
   :javascript
+    function resizeToMax(img){
+        myImage = new Image(); 
+        myImage.src = img.attr('src');
+
+        window.setTimeout(function(){
+          if (myImage.width == 0) return;
+          
+          if(myImage.width / document.body.clientWidth > myImage.height / document.body.clientHeight){
+              img.css('width', "90%");
+              img.css('height', "auto");
+          } else {
+              img.css('height', "90%");
+              img.css('width', "auto");
+          }
+        }, 100);
+    }
+  
+    function perform_layout() {
+      resizeToMax($('#film_poster'));
+      layout_video();
+    }
+    
+    function layout_video() {  
+      var video_aspec_ratio = #{ @prize_media_name == "lazytown" ? 1.5 : 1.333 };
+      
+      var available_height = $(window).height() - $("video").offset().top - 20;
+      var available_width = $(window).width() * 0.9;
+      
+      if (available_width < available_height * video_aspec_ratio) {
+        $("video").attr('height', Math.floor(available_width / video_aspec_ratio))
+                .attr('width', Math.floor(available_width));
+      } else {
+        $("video").attr('height', Math.floor(available_height))
+          .attr('width', Math.floor(available_height * video_aspec_ratio));
+      }
+    }
+  
     $(function() {
+      layout_video();
+      
       if (window.nextUrl) {
         //total_video_duration = $("#videoPlayer").get(0).duration Not working, video is not visible yet. Will use a defult number
         total_video_duration = 49000;
@@ -12,11 +51,14 @@
       }
 
       // Chrome does not render the video unless a position property is changed or screen is resized
-      window.setInterval(function() {
+      window.setTimeout(function() {
         $('video').css('position', 'relative');
       }, 500);
+      
+      $(window).resize(perform_layout);
     });
 
-%video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/#{@prize_media_name}.jpg"}
-  %source{:src => "/assets/#{@prize_media_name}.mp4", :type => "video/mp4"}
-    %img{:alt => "Film Poster", :height => "180", :src => "/assets/#{@prize_media_name}.jpg", :width => "320"}
+%center
+  %video#videoPlayer{:autobuffer => "", :autoplay => "autoplay",  :poster => "/assets/#{@prize_media_name}.jpg"}
+    %source{:src => "/assets/#{@prize_media_name}.mp4", :type => "video/mp4"}
+      %img{:id => "film_poster", :alt => "Film Poster", :src => "/assets/#{@prize_media_name}.jpg", :onload => "resizeToMax($(this))"}

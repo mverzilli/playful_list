@@ -2,7 +2,5 @@
   :javascript
     window.nextUrl = "#{play_session_url(@session, @step, @iteration)}";
 
-%h1 Felicitaciones, terminaste el nivel!
-%p Preparate para el próximo...
-%hr
+= game_title ''
 = render 'prize', prize: @prize

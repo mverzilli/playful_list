@@ -4,6 +4,8 @@
     %title
       ¡Puedo Jugar Solo!
     = stylesheet_link_tag    "application", :media => "all"
+    %style
+      html, body { height: 100%; }
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield :head
