@@ -22,8 +22,7 @@ PlayfulList::Application.routes.draw do
   devise_for :users
 
   get '/sign_in_as_demo_user' =>  'home#sign_in_as_demo_user'
-
-  get '/sequence' => 'home#sequence'
+  get '/por_que' => 'home#por_que'
 
   root :to => 'lists#index'
 
