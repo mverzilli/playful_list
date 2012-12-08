@@ -34,7 +34,7 @@
           %li
             = link_to "Entra", new_user_session_path
           %li
-            = link_to "Ingresa como usuario demo", sign_in_as_demo_user_path
+            = link_to "Ingresa con un usuario de prueba", sign_in_as_demo_user_path
   %div{ :class => "container " + (@body_css || "") }
     - unless notice.blank?
       .alert.alert-success
