@@ -36,10 +36,10 @@
     %div
       - @data.right_column_choices.each do |choice|
         - if choice.image == @data.answer.image
-          .right
+          %button.right
             = image_tag(asset_path(choice.image))
         - else
-          .wrong
+          %button.wrong
             = image_tag(asset_path(choice.image))
         %br
 

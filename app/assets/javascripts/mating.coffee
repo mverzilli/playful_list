@@ -2,9 +2,11 @@ class window.MatingGame
   constructor: ->
     $('.wrong').click =>
       @error()
+      false
 
     $('.right').click =>
       @success()
+      false
 
     @attempts = 0
     @timeout = null
