@@ -1,6 +1,7 @@
-%div.add_level.well{style: 'width: 140px; height: 128px;padding:8px; float:left; margin-right: 10px;', 'data-level-id' => "#{level.id}", 'data-list-id' => "#{list.id}"}
+%button.add_level.well{style: 'width: 140px; height: 128px;padding:8px; float:left; margin-right: 10px;', 'data-level-id' => "#{level.id}", 'data-list-id' => "#{list.id}"}
   %div
     = "#{game.name} | Nivel #{level.order} "
   %h4
     = level.name
   = "Duración estimada: #{level.duration / 60} minutos"
+  .clear

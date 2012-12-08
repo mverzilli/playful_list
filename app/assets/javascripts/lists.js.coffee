@@ -11,6 +11,7 @@ window.on_load_list_form = ->
 $(document).on('click', '.add_level', ( ->
   $.post "/lists/#{this.getAttribute('data-list-id')}/add_level/#{this.getAttribute('data-level-id')}", ->
     location.reload();
+  false;
 ));
 
 # jQuery ->

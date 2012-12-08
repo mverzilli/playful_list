@@ -45,6 +45,7 @@ h1, h2, h3 {
 
 .add_level {
     border-color: #F38630;
+    text-align: left;
 }
 
 .container.full_width, .navbar-static-top .container.full_width, .navbar-fixed-top .container.full_width, .navbar-fixed-bottom .container.full_width {
